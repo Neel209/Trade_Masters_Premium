@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Masters Premium - Subscription Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #050505;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            color: white;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #00d4ff, #0078ff);
+            color: white;
+            font-size: 1.5rem;
+        }
+        .plans {
+            padding: 20px;
+        }
+        .plan {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 2px solid #00d4ff;
+            position: relative;
+        }
+        .plan .price {
+            font-weight: bold;
+        }
+        .plan .discount {
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #ff3e3e;
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .plan button {
+            background: #00d4ff;
+            color: black;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .plan button:hover {
+            background: #0078ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Trade Masters Premium</div>
+        <div class="plans">
+            <p>Select a plan and continue</p>
+
+            <div class="plan">
+                <div>
+                    <h3>Weekly</h3>
+                    <p class="price">1 Week</p>
+                </div>
+                <div>
+                    <h4>&#8377;449.00</h4>
+                    <button onclick="redirectToPayment('weekly', 449)">BUY NOW</button>
+                </div>
+                <div class="discount">50.13% OFF</div>
+            </div>
+
+            <div class="plan">
+                <div>
+                    <h3>Monthly</h3>
+                    <p class="price">1 Month</p>
+                </div>
+                <div>
+                    <h4>&#8377;999.00</h4>
+                    <button onclick="redirectToPayment('monthly', 999)">BUY NOW</button>
+                </div>
+                <div class="discount">65.01% OFF</div>
+            </div>
+
+            <div class="plan">
+                <div>
+                    <h3>Half Yearly</h3>
+                    <p class="price">6 Month</p>
+                </div>
+                <div>
+                    <h4>&#8377;2999.00</h4>
+                    <button onclick="redirectToPayment('half-yearly', 2999)">BUY NOW</button>
+                </div>
+                <div class="discount">66.65% OFF</div>
+            </div>
+
+            <div class="plan">
+                <div>
+                    <h3>Yearly</h3>
+                    <p class="price">12 Month</p>
+                </div>
+                <div>
+                    <h4>&#8377;3999.00</h4>
+                    <button onclick="redirectToPayment('yearly', 3999)">BUY NOW</button>
+                </div>
+                <div class="discount">68.39% OFF</div>
+            </div>
+
+            <div class="plan">
+                <div>
+                    <h3>Lifetime</h3>
+                    <p class="price">Lifetime</p>
+                </div>
+                <div>
+                    <h4>&#8377;5999.00</h4>
+                    <button onclick="redirectToPayment('lifetime', 5999)">BUY NOW</button>
+                </div>
+                <div class="discount">70.55% OFF</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToPayment(plan, amount) {
+            const upiID = "Neelrupareliya09@oksbi";  // Your UPI ID
+            const merchantName = "Neel Rupareliya";  // Your Merchant Name
+            const transactionID = new Date().getTime();  // Unique Transaction ID
+
+            // UPI payment URL - opens available UPI apps
+            const paymentURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(merchantName)}&tid=${transactionID}&am=${amount}&cu=INR`;
+
+            // Mobile Browsers Block Redirects - Open in a new tab or prompt user
+            window.location.href = paymentURL;
+        }
+    </script>
+</body>
+</html>
